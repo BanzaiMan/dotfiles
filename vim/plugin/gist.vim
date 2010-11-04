@@ -376,7 +376,8 @@ function! s:GistUpdate(user, token, content, gistid, gistnm)
 endfunction
 
 function! s:GistGetPage(url, user, param, opt)
-  let cookiedir = substitute(expand('<sfile>:p:h'), '[/\\]plugin$', '', '').'/cookies'
+  "let cookiedir = substitute(expand('<sfile>:p:h'), '[/\\]plugin$', '', '').'/cookies'
+  let cookiedir = $HOME.'/.vim/cookies'
   if !isdirectory(cookiedir)
     call mkdir(cookiedir, 'p')
   endif
