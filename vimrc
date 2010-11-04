@@ -10,6 +10,7 @@ set hlsearch
 set incsearch
 set showcmd
 syntax enable
+colorscheme vividchalk
 
 " maps
 map Q gq
