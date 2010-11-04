@@ -29,3 +29,6 @@ else
 
 endif
 
+"gist plugin
+let g:gist_show_privates = 1
+let g:gist_clip_command = 'pbcopy'
