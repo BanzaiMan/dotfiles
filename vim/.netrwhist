@@ -1,0 +1,6 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/asari/Development/src/jruby'
+let g:netrw_dirhist_2='/Users/asari/Development/src/jruby/.git'
+let g:netrw_dirhist_3='/Users/asari/Development/src/jruby/.git/info'
+let g:netrw_dirhist_4='Development/src/jruby'
