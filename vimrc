@@ -11,8 +11,10 @@ set laststatus=2
 set hlsearch
 set incsearch
 set showcmd
+set foldcolumn=1
 syntax enable
 colorscheme vividchalk
+set hidden
 
 " maps
 map Q gq
