@@ -1,6 +1,8 @@
 " Basic stuff
 set nocompatible
 
+silent! call pathogen#runtime_append_all_bundles()
+
 " visual
 set scrolloff=3
 set ruler
@@ -14,6 +16,9 @@ colorscheme vividchalk
 
 " maps
 map Q gq
+
+"auto-completion
+imap <S-Tab> <C-N>
 
 " formatting
 "set ts=2
