@@ -20,6 +20,7 @@ syntax enable
 colorscheme vividchalk
 set hidden
 
+set shortmess=atI
 "
 set visualbell
 
