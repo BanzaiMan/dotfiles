@@ -2,6 +2,10 @@
 set nocompatible
 
 silent! call pathogen#runtime_append_all_bundles()
+silent! call pathogen#helptags()
+
+set backupdir=$TMPDIR,~/.vim-tmp,~/.tmp
+set directory=$TMPDIR,~/.vim-tmp,~/.tmp
 
 " visual
 set scrolloff=3
@@ -15,9 +19,14 @@ set foldcolumn=1
 syntax enable
 colorscheme vividchalk
 set hidden
+set statusline=%{GitBranchInfoString()}
+
+"
+set visualbell
 
 " maps
 map Q gq
+map <leader>tt :TlistToggle<CR>
 
 "auto-completion
 imap <S-Tab> <C-N>
