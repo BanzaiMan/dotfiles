@@ -19,7 +19,6 @@ set foldcolumn=1
 syntax enable
 colorscheme vividchalk
 set hidden
-set statusline=%{GitBranchInfoString()}
 
 "
 set visualbell

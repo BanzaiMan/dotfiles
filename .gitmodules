@@ -49,6 +49,3 @@
 [submodule "vim/bundle/vim-speeddating"]
 	path = vim/bundle/vim-speeddating
 	url = https://github.com/tpope/vim-speeddating.git
-[submodule "vim/bundle/vim-git-branch-info/plugin"]
-	path = vim/bundle/vim-git-branch-info/plugin
-	url = https://github.com/taq/vim-git-branch-info.git
