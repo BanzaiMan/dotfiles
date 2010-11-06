@@ -49,3 +49,7 @@ endif
 "gist plugin
 let g:gist_show_privates = 1
 let g:gist_clip_command = 'pbcopy'
+
+"vcscommand
+let VCSCommandEnableBufferSetup=1
+set statusline=%<%f\ %y\ %{VCSCommandGetStatusLine()}\ %h%m%r%=%l,%c%V\ %L\(%P\)
