@@ -1,0 +1,18 @@
+# freshshell.com
+#
+# Examples:
+#
+#   fresh twe4ked/dotfiles shell/functions.sh
+#   fresh jasoncodes/dotfiles aliases/rails.sh
+#   fresh jasoncodes/dotfiles config/tmux.conf --file
+#
+# See http://freshshell.com/readme for documentation.
+
+fresh BanzaiMan/fresh bin/fresh --bin=~/personal/bin/fresh
+#FRESH_NO_BIN_CHECK=true
+
+fresh gitconfig --file
+
+fresh BanzaiMan/dotfiles zsh/zshrc --file
+
+fresh BanzaiMan/dotfiles tmux/tmux.conf --file
