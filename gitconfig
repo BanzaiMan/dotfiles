@@ -1,0 +1,63 @@
+[user]
+	name = Hiro Asari
+	email = asari.ruby@gmail.com
+[alias]
+  pager = !$HOME/personal/bin/git-pager \"$@\"
+  info = !$HOME/personal/bin/git-info \"$@\"
+  editor = !$HOME/bin/git-editor \"$@\"
+  loglive = !$HOME/personal/bin/git-loglive \"$@\"
+  ci     = commit
+  co     = checkout
+  svnup  = svn fetch
+  sup    = svn fetch
+  svnci  = svn dcommit
+  sci    = svn dcommit
+  up     = pull --rebase
+  p      = pull
+  sreb   = svn rebase
+  srt    = svn rebase remotes/trunk
+  srebt  = svn rebase remotes/trunk
+  reb    = rebase
+  tree   = log --oneline --graph --decorate
+	d = diff --no-ext-diff --color-words
+	st = status -sb
+	switch = !legit switch \"$@\"
+	branches = !legit branches
+	sprout = !legit sprout \"$@\"
+	unpublish = !legit unpublish \"$@\"
+	harvest = !legit harvest \"$@\"
+	sync = !legit sync \"$@\"
+	publish = !legit publish \"$@\"
+	graft = !legit graft \"$@\"
+	lol = log --oneline --graph --decorate --all
+	unadd = reset HEAD
+	amend = commit --amend
+; delete-merged-branches
+	dmb = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+	latest = for-each-ref --count=10 --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
+  squash =!sh -c 'gsq \"$@\"'
+[github]
+  token = 37d8046d00e88950d4010fef1375e04a
+  user = BanzaiMan
+[rerere]
+  enabled = 1
+[core]
+	autocrlf = input
+	safecrlf = true
+	excludesfile = /Users/asari/.gitignore_global
+	pager = less -F -X
+[push]
+	default = matching
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[color]
+	ui = auto
