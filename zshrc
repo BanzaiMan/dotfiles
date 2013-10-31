@@ -10,17 +10,29 @@ setopt prompt_subst
 local smiley="%(?,%{$fg[green]%}☺%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
 
 PROMPT='
-%{$fg[red]%}%{$bg[white]%}%~%{$reset_color%}
+%m %{$fg[red]%}%{$bg[white]%}%~%{$reset_color%}
 ${smiley} %{$reset_color%} '
+PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
-RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt u v p s g)$(/usr/local/bin/vcprompt -f " [%n:%m%u%b%r]")%{$reset_color%}'
+#RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt u v p s g)$(/usr/local/bin/vcprompt -f " [%n:%m%u%b%r]")%{$reset_color%}'
+RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt u v p s g)$($HOME/personal/bin/git-cwd-info.rb)%{$reset_color%}'
 
 # Show completion on first TAB
 #setopt menucomplete
 
 # set up PATH and such
 DEFAULT_PATH=$PATH
-export PATH=/usr/local/sbin:/usr/local/bin:$DEFAULT_PATH:$HOME/personal/bin:/usr/local/jruby/bin:/usr/local/ruby19/bin:/usr/local/ruby18/bin:/usr/local/postgresql/9.1/bin
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python3:$DEFAULT_PATH:$HOME/personal/bin:/usr/local/jruby/bin:/usr/local/ruby19/bin:/usr/local/ruby18/bin:/usr/local/postgresql/9.1/bin:$HOME/personal/perlbrew/bin
+
+# postgres
+source /Applications/PostgreSQL/9.2/pg_env.sh
+export DYLD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/Applications/PostgreSQL/9.2/lib
+
+# mysql
+mysql_dir=/usr/local/mysql
+export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH:$mysql_dir/lib
+PATH=$PATH:$mysql_dir/bin
+
 unset DEFALUT_PATH
 
 # Load completions for Ruby, Git, etc.
@@ -28,18 +40,62 @@ autoload compinit
 compinit
 
 # aliases
-alias grep='grep --colour'
+if [ -f $HOME/.aliases ]; then
+  source $HOME/.aliases
+fi
 
 # perlbrew
-if [ -f $HOME/perl5/perlbrew/etc/bashrc ]; then
-  source $HOME/perl5/perlbrew/etc/bashrc
+export PERLBREW_ROOT=$HOME/personal/perlbrew
+if [ -f $PERLBREW_ROOT/etc/bashrc ]; then
+  source $PERLBREW_ROOT/etc/bashrc
   alias pb='perlbrew switch'
   alias pl='perlbrew list'
 fi
 
+## Java
+export CLASSPATH=/usr/local/lib/antlr-4.1-complete.jar:$CLASSPATH
 
 ## history options
 setopt HIST_IGNORE_DUPS
 setopt INC_APPEND_HISTORY
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# Initialization for FDK command line tools.Mon Sep 24 22:33:53 2012
+FDK_EXE="/Users/asari/personal/bin/FDK/Tools/osx"
+PATH=${PATH}:"/Users/asari/personal/bin/FDK/Tools/osx"
+export PATH
+export FDK_EXE
+
+# fresh
+source ~/.fresh/build/shell.sh
+
+# prompt
+function pc {
+  if [ -z $RPROMPT ]; then
+    return
+  fi
+  _P=$PROMPT
+  _R=$RPROMPT
+
+  PROMPT='$ '
+  unset RPROMPT
+}
+
+function pr {
+  if [ -z $_P ]; then
+    return
+  fi
+  PROMPT=$_P
+  RPROMPT=$_R
+  unset _P
+  unset _R
+}
+
+function gsq {
+  if [ -z $1 ]; then
+    git rebase -i HEAD~$1
+  fi
+}
