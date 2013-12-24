@@ -36,9 +36,6 @@
 	dmb = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
 	latest = for-each-ref --count=10 --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
   squash =!sh -c 'gsq \"$@\"'
-[github]
-  token = 37d8046d00e88950d4010fef1375e04a
-  user = BanzaiMan
 [rerere]
   enabled = 1
 [core]
