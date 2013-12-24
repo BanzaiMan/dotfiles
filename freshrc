@@ -16,3 +16,6 @@ fresh gitconfig --file
 fresh zsh/zshrc --file
 
 fresh tmux/tmux.conf --file
+
+fresh ssh/config --file=~/.ssh/config
+
