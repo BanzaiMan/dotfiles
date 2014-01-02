@@ -24,9 +24,9 @@ RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt u v p s g)$($HOME/personal/bin/g
 DEFAULT_PATH=$PATH
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python3:$DEFAULT_PATH:$HOME/personal/bin:/usr/local/jruby/bin:/usr/local/ruby19/bin:/usr/local/ruby18/bin:/usr/local/postgresql/9.1/bin:$HOME/personal/perlbrew/bin
 
-# postgres
-source /Applications/PostgreSQL/9.2/pg_env.sh
-export DYLD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/Applications/PostgreSQL/9.2/lib
+# # postgres
+# source /Applications/PostgreSQL/9.2/pg_env.sh
+# export DYLD_LIBRARY_PATH=/usr/local/lib:/usr/lib:/Applications/PostgreSQL/9.2/lib
 
 # mysql
 mysql_dir=/usr/local/mysql
