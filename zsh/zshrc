@@ -99,9 +99,5 @@ man() {
       man "$@"
 }
 
-# go
-export GOPATH=$HOME/.go
-export PATH=$PATH:$GOPATH/bin
-
 # java
 export JAVA_HOME=$(/usr/libexec/java_home -a x86_64 -v 1.7)
