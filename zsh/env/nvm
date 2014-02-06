@@ -1,0 +1,7 @@
+
+# nvm                                                                              
+if [ -f $(brew --prefix nvm)/nvm.sh ]; then                                     
+  source $(brew --prefix nvm)/nvm.sh                                            
+else                                                                            
+  echo "install nvm with 'brew install nvm'"                                    
+fi                                                                              

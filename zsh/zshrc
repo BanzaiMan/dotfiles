@@ -39,22 +39,6 @@ unset DEFALUT_PATH
 autoload compinit
 compinit
 
-# perlbrew
-export PERLBREW_ROOT=$HOME/personal/perlbrew
-if [ -f $PERLBREW_ROOT/etc/bashrc ]; then
-  source $PERLBREW_ROOT/etc/bashrc
-  alias pb='perlbrew switch'
-  alias pl='perlbrew list'
-fi
-
-# nvm
-if [ -f $(brew --prefix nvm)/nvm.sh ]; then
-  source $(brew --prefix nvm)/nvm.sh
-else
-  echo "install nvm with 'brew install nvm'"
-fi
-
-
 ## history options
 setopt HIST_IGNORE_DUPS
 setopt INC_APPEND_HISTORY
