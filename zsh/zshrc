@@ -98,6 +98,3 @@ man() {
     LESS_TERMCAP_us=$(printf "\e[4;35m") \
       man "$@"
 }
-
-# java
-export JAVA_HOME=$(/usr/libexec/java_home -a x86_64 -v 1.7)
