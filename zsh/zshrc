@@ -39,11 +39,6 @@ unset DEFALUT_PATH
 autoload compinit
 compinit
 
-# aliases
-if [ -f $HOME/.aliases ]; then
-  source $HOME/.aliases
-fi
-
 # perlbrew
 export PERLBREW_ROOT=$HOME/personal/perlbrew
 if [ -f $PERLBREW_ROOT/etc/bashrc ]; then
