@@ -13,7 +13,7 @@ fresh BanzaiMan/fresh bin/fresh --bin=~/personal/bin/fresh
 
 fresh gitconfig --file
 
-fresh zsh/zshrc --file
+fresh zsh/zshrc zsh/env/\* --file
 
 fresh tmux/tmux.conf --file
 

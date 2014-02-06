@@ -59,8 +59,6 @@ else
   echo "install nvm with 'brew install nvm'"
 fi
 
-## Java
-export CLASSPATH=/usr/local/lib/antlr-4.1-complete.jar:$CLASSPATH
 
 ## history options
 setopt HIST_IGNORE_DUPS
@@ -121,3 +119,10 @@ man() {
     LESS_TERMCAP_us=$(printf "\e[4;35m") \
       man "$@"
 }
+
+# go
+export GOPATH=$HOME/.go
+export PATH=$PATH:$GOPATH/bin
+
+# java
+export JAVA_HOME=$(/usr/libexec/java_home -a x86_64 -v 1.7)
