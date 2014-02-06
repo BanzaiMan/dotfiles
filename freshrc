@@ -14,7 +14,7 @@ fresh BanzaiMan/fresh bin/fresh --bin=~/personal/bin/fresh
 fresh gitconfig --file
 
 fresh zsh/zshrc --file
-fresh BanzaiMan/dotfiles zsh/env/\*
+fresh zsh/env/\*
 
 fresh tmux/tmux.conf --file
 
