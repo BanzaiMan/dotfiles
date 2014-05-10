@@ -20,3 +20,5 @@ fresh tmux/tmux.conf --file
 
 fresh ssh/config --file=~/.ssh/config
 
+fresh tig/tigrc --file
+
