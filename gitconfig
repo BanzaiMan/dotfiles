@@ -39,28 +39,37 @@
 [rerere]
   enabled = 1
 [core]
-	autocrlf = input
+  ; autocrlf = input
 	safecrlf = true
 	excludesfile = /Users/asari/.gitignore_global
 	pager = less -F -X
 [push]
 	default = matching
+[color]
+	ui = auto
+[credential]
+	helper = osxkeychain
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+
+[difftool "Kaleidoscope"]
+         cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+         tool = Kaleidoscope
+[difftool]
+         prompt = false
+[mergetool "Kaleidoscope"]
+         cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+                trustExitCode = true
+[mergetool]
+         prompt = false
+[merge]
+         tool = Kaleidoscope
+
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
-[color]
-	ui = auto
-[credential]
-	helper = osxkeychain
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
-[mergetool]
-	prompt = false
-[merge]
-	tool = Kaleidoscope
