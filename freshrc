@@ -22,3 +22,4 @@ fresh ssh/config --file=~/.ssh/config
 
 fresh tig/tigrc --file
 
+fresh gitconfig --file
