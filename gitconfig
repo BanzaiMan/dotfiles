@@ -1,6 +1,8 @@
 [user]
 	name = Hiro Asari
 	email = asari.ruby@gmail.com
+[push]
+  default = simple
 [alias]
   pager = !$HOME/personal/bin/git-pager \"$@\"
   info = !$HOME/personal/bin/git-info \"$@\"
@@ -43,8 +45,6 @@
 	safecrlf = true
 	excludesfile = /Users/asari/.gitignore_global
 	pager = less -F -X
-[push]
-	default = matching
 [color]
 	ui = auto
 [credential]
