@@ -26,6 +26,8 @@ export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python3:$DEFAULT_PAT
 
 unset DEFALUT_PATH
 
+cdpath=($HOME/Development/src/travis-ci)
+
 # Load completions for Ruby, Git, etc.
 autoload compinit
 compinit
