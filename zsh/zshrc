@@ -7,15 +7,13 @@ colors
 setopt prompt_subst
 
 # Prompt
-local smiley="%(?,%{$fg[green]%}☺%{$reset_color%},%{$fg[red]%}☹%{$reset_color%})"
+local dollar="%(?,%{$fg[green]%},%{$fg[red]%})$%{$reset_color%}"
 
-PROMPT='
-%m %{$fg[red]%}%{$bg[white]%}%~%{$reset_color%}
-${smiley} %{$reset_color%} '
+PROMPT='%m[%{$fg[blue]%}%{$bg[white]%}%~%{$reset_color%}]${dollar} %{$reset_color%}'
 PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#P") "$PWD")'
 
 #RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt u v p s g)$(/usr/local/bin/vcprompt -f " [%n:%m%u%b%r]")%{$reset_color%}'
-RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt u v p s g)$($HOME/personal/bin/git-cwd-info.rb)%{$reset_color%}'
+#RPROMPT='%{$fg[white]%} $(~/.rvm/bin/rvm-prompt u v p s g)$($HOME/personal/bin/git-cwd-info.rb)%{$reset_color%}'
 
 # Show completion on first TAB
 #setopt menucomplete
