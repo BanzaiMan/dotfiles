@@ -1,3 +1,5 @@
 alias grep='grep --colour'
 alias t='tmux'
 alias bx='bundle exec'
+
+export VAGRANT_VMWARE_CLONE_DIRECTORY=$HOME/Documents/Virtual\ Machines.localized
