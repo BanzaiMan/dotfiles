@@ -1,5 +1,5 @@
 # go
-if [ -f $HOME/.gvm/scripts/gvm ]
+if [[ -f $HOME/.gvm/scripts/gvm ]]; then
   source $HOME/.gvm/scripts/gvm
   gvm use 1.4 2>&1 >/dev/null
 fi
