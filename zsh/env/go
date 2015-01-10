@@ -1,4 +1,4 @@
 # go
-source $HOME/.gvm/scripts/gvm
+test -f $HOME/.gvm/scripts/gvm && source $HOME/.gvm/scripts/gvm
 
 gvm use 1.4 2>&1 >/dev/null
