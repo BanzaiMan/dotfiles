@@ -14,11 +14,12 @@ fresh BanzaiMan/fresh bin/fresh --bin=~/personal/bin/fresh
 fresh gitconfig --file
 
 fresh zsh/zshrc --file
+fresh zsh/zlogin --file
 fresh zsh/env/\*
 
 fresh tmux/tmux.conf --file
 
-fresh ssh/config --file=~/.ssh/config
+#fresh ssh/config --file=~/.ssh/config
 
 fresh tig/tigrc --file
 
