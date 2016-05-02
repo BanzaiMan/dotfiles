@@ -1,6 +1,6 @@
 [user]
-	name = Hiro Asari
-	email = asari.ruby@gmail.com
+  name = Hiro Asari
+  email = asari.ruby@gmail.com
 [push]
   default = simple
 [alias]
@@ -21,42 +21,40 @@
   srebt  = svn rebase remotes/trunk
   reb    = rebase
   tree   = log --oneline --graph --decorate
-	d = diff --no-ext-diff --color-words
-	st = status -sb
-	switch = !legit switch \"$@\"
-	branches = !legit branches
-	sprout = !legit sprout \"$@\"
-	unpublish = !legit unpublish \"$@\"
-	harvest = !legit harvest \"$@\"
-	sync = !legit sync \"$@\"
-	publish = !legit publish \"$@\"
-	graft = !legit graft \"$@\"
-	lol = log --oneline --graph --decorate --all
-	unadd = reset HEAD
-	amend = commit --amend
+  d = diff --no-ext-diff --color-words
+  st = status -sb
+  switch = !legit switch \"$@\"
+  branches = !legit branches
+  sprout = !legit sprout \"$@\"
+  unpublish = !legit unpublish \"$@\"
+  harvest = !legit harvest \"$@\"
+  sync = !legit sync \"$@\"
+  publish = !legit publish \"$@\"
+  graft = !legit graft \"$@\"
+  lol = log --oneline --graph --decorate --all
+  unadd = reset HEAD
+  amend = commit --amend
 ; delete-merged-branches
-	dmb = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
-	latest = for-each-ref --count=10 --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
+  dmb = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
+  latest = for-each-ref --count=10 --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
   squash =!sh -c 'gsq \"$@\"'
 [rerere]
   enabled = 1
 [core]
   ; autocrlf = input
-	safecrlf = true
-	excludesfile = /Users/asari/.gitignore_global
-	pager = zsh -lc 'diff-highlight | strip_diff_leading_symbols | less -r' -
+  safecrlf = true
+  excludesfile = /Users/asari/.gitignore_global
+  pager = zsh -lc 'diff-highlight | strip_diff_leading_symbols | less -r' -
 [color]
-	ui = auto
+  ui = auto
 [color "diff-highlight"]
   oldNormal = "red bold"
   oldHighlight = "red bold 52"
   newNormal = "green bold"
   newHighlight = "green bold 22"
-[credential]
-	helper = osxkeychain
 [filter "media"]
-	clean = git-media-clean %f
-	smudge = git-media-smudge %f
+  clean = git-media-clean %f
+  smudge = git-media-smudge %f
 
 [difftool "Kaleidoscope"]
          cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
