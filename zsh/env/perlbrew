@@ -1,7 +1,0 @@
-# perlbrew
-export PERLBREW_ROOT=$HOME/personal/perlbrew
-if [ -f $PERLBREW_ROOT/etc/bashrc ]; then
-  source $PERLBREW_ROOT/etc/bashrc
-  alias pb='perlbrew switch'
-  alias pl='perlbrew list'
-fi

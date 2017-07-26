@@ -1,3 +1,0 @@
-if [ -f $HOME/.gimme/envs/latest.env ]; then
-  source $HOME/.gimme/envs/latest.env
-fi
