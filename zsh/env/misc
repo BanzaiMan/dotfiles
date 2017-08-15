@@ -1,5 +1,9 @@
 alias grep='grep --colour'
 alias t='tmux'
 alias bx='bundle exec'
+alias ssho='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
+alias mosho='mosh --ssh="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"'
+alias dq="exec bash --login '/Applications/Docker/Docker Quickstart Terminal.app/Contents/Resources/Scripts/start.sh'"
+alias ghm="github-markdown" # https://github.com/cwjohan/markdown-to-html
 
 export VAGRANT_VMWARE_CLONE_DIRECTORY=$HOME/Documents/Virtual\ Machines.localized

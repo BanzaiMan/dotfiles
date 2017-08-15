@@ -1,6 +1,3 @@
-# RVM
-if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
-
 # Colors
 autoload -U colors
 colors
@@ -19,10 +16,12 @@ PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#
 #setopt menucomplete
 
 # set up PATH and such
-DEFAULT_PATH=$PATH
-export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python3:$DEFAULT_PATH:$HOME/personal/bin:/usr/local/jruby/bin:/usr/local/ruby19/bin:/usr/local/ruby18/bin:/usr/local/postgresql/9.1/bin:$HOME/personal/perlbrew/bin
+# DEFAULT_PATH=$PATH
+# export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python3:$DEFAULT_PATH:$HOME/personal/bin:/usr/local/jruby/bin:/usr/local/ruby19/bin:/usr/local/ruby18/bin:/usr/local/postgresql/9.1/bin:$HOME/personal/perlbrew/bin
+# 
+# unset DEFALUT_PATH
 
-unset DEFALUT_PATH
+export PATH=$PATH:${$(perl -e 'print $^X')%/*} # add perl's bin dir, wherever it is.
 
 cdpath=($HOME/Development/src/travis-ci)
 
@@ -37,16 +36,16 @@ setopt HIST_SAVE_NO_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt EXTENDED_HISTORY
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-# Initialization for FDK command line tools.Mon Sep 24 22:33:53 2012
-FDK_EXE="/Users/asari/personal/bin/FDK/Tools/osx"
-PATH=${PATH}:"/Users/asari/personal/bin/FDK/Tools/osx"
-export PATH
-export FDK_EXE
+test -s $HOME/.fresh/build/shell.sh && source $HOME/.fresh/build/shell.sh
 
-# fresh
-source ~/.fresh/build/shell.sh
+# # Initialization for FDK command line tools.Mon Sep 24 22:33:53 2012
+# FDK_EXE="/Users/asari/personal/bin/FDK/Tools/osx"
+# PATH=${PATH}:"/Users/asari/personal/bin/FDK/Tools/osx"
+# PATH=${PATH}:"/usr/local/google-cloud-sdk/bin"
+# export PATH
+# export FDK_EXE
 
 # prompt
 function pc {
@@ -74,6 +73,18 @@ function gsq {
   if [ -z $1 ]; then
     git rebase -i HEAD~$1
   fi
+}
+
+function dkr {
+  cid=$(docker run -dit quay.io/travisci/travis-$1 /sbin/init)
+  docker exec -it $cid /bin/bash
+  docker stop $cid
+}
+
+function dkrt {
+  cid=$(docker run -dit travisci/ci-garnet:packer-1499451976 /sbin/init)
+  docker exec -it $cid /bin/bash
+  docker stop $cid
 }
 
 # man

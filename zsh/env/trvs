@@ -1,0 +1,1 @@
+eval "$(/Users/asari/.trvs/bin/trvs init -)"

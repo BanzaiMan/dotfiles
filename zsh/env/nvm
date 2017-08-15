@@ -1,7 +1,4 @@
-
 # nvm
-if [ -f $(brew --prefix nvm)/nvm.sh ]; then
-  source $(brew --prefix nvm)/nvm.sh
-else
-  echo "install nvm with 'brew install nvm'"
-fi
+export NVM_DIR="/Users/asari/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+

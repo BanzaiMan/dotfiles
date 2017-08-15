@@ -17,10 +17,12 @@ fresh zsh/zshrc --file
 fresh zsh/zlogin --file
 fresh zsh/env/\*
 
+fresh vimrc.before --file
+fresh vimrc.after --file
+
 fresh tmux/tmux.conf --file
 
 #fresh ssh/config --file=~/.ssh/config
 
 fresh tig/tigrc --file
 
-fresh gitconfig --file

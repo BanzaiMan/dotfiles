@@ -1,0 +1,2 @@
+alias pto='papertrail -c ~/.papertrail/papertrail-org.yml'
+alias ptc='papertrail -c ~/.papertrail/papertrail-com.yml'
