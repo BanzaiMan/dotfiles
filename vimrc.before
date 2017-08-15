@@ -1,0 +1,5 @@
+call janus#disable_plugin('ctrlp')
+
+"for LustyExplorer
+set hidden
+
