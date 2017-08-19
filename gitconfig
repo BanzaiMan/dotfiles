@@ -44,7 +44,7 @@
   ; autocrlf = input
   safecrlf = true
   excludesfile = /Users/asari/.gitignore_global
-  pager = zsh -lc 'diff-highlight | strip_diff_leading_symbols | less -r' -
+  pager = zsh -lc '/usr/local/share/git-core/contrib/diff-highlight/diff-highlight | strip_diff_leading_symbols | less -r' -
 [color]
   ui = auto
 [color "diff-highlight"]
