@@ -1,3 +1,3 @@
-PATH=$PATH:/usr/local/Cellar/postgresql-9.5/9.5.5/bin
+PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.6/bin
 PGHOST=localhost
 PGPORT=5432

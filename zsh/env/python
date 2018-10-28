@@ -1,1 +1,2 @@
 PATH=$PATH:$HOME/Library/Python/2.7/bin
+export PYTHON_SITE_PKG_DIR=/usr/local/lib/python3.7/site-packages

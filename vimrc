@@ -56,3 +56,9 @@ set statusline=%<%f\ %y\ %{VCSCommandGetStatusLine()}\ %h%m%r%=%l,%c%V\ %L\(%P\)
 
 "NERDTree
 let NERDTreeIgnore=['\~$','\.o$','\.rbc$']
+
+"powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+

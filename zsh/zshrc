@@ -2,6 +2,10 @@
 autoload -U colors
 colors
 setopt prompt_subst
+setopt +o nomatch
+
+# powerline
+. /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 # Prompt
 local dollar="%(?,%{$fg[green]%},%{$fg[red]%})$%{$reset_color%}"
@@ -18,7 +22,7 @@ PROMPT="$PROMPT"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#I_#
 # set up PATH and such
 # DEFAULT_PATH=$PATH
 # export PATH=/usr/local/sbin:/usr/local/bin:/usr/local/share/python3:$DEFAULT_PATH:$HOME/personal/bin:/usr/local/jruby/bin:/usr/local/ruby19/bin:/usr/local/ruby18/bin:/usr/local/postgresql/9.1/bin:$HOME/personal/perlbrew/bin
-# 
+#
 # unset DEFALUT_PATH
 
 export PATH=$PATH:${$(perl -e 'print $^X')%/*} # add perl's bin dir, wherever it is.

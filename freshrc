@@ -20,6 +20,7 @@ fresh zsh/env/\*
 fresh vimrc.before --file
 fresh vimrc.after --file
 
+fresh powerline --file=~/.config/powerline/
 fresh tmux/tmux.conf --file
 
 #fresh ssh/config --file=~/.ssh/config
