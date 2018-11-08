@@ -91,6 +91,12 @@ function dkrt {
   docker stop $cid
 }
 
+function dkrx {
+  cid=$(docker run -dit travisci/ci-stevonnie:packer-1541445996-e193d27 /sbin/init)
+  docker exec -it $cid /bin/bash
+  docker stop $cid
+}
+
 # man
 # https://wiki.archlinux.org/index.php/Man_Page#Using_less_.28Recommended.29
 # https://en.wikipedia.org/wiki/ANSI_escape_code#CSI_codes
