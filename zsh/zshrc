@@ -92,7 +92,7 @@ function dkrt {
 }
 
 function dkrx {
-  cid=$(docker run -dit travisci/ci-stevonnie:packer-1541445996-e193d27 /sbin/init)
+  cid=$(docker run -dti --privileged=true --entrypoint=/sbin/init -v /sys/fs/cgroup:/sys/fs/cgroup:ro travisci/ci-sardonyx:packer-1542104228-d128723)
   docker exec -it $cid /bin/bash
   docker stop $cid
 }
