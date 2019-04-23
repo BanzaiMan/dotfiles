@@ -29,6 +29,11 @@ export PATH=$PATH:${$(perl -e 'print $^X')%/*} # add perl's bin dir, wherever it
 
 cdpath=($HOME/Development/src/travis-ci)
 
+# Fix Homebrew zsh command completions
+for f in $(find $(find ~/personal/Homebrew/completions -name completions) -type f -ipath \*\*/zsh/\*\*); do
+  ln -sf $f $(brew --prefix)/share/zsh/site-functions/$(basename $f)
+done
+
 # Load completions for Ruby, Git, etc.
 autoload compinit
 compinit
