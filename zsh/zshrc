@@ -84,22 +84,34 @@ function gsq {
   fi
 }
 
+function latest_tag_for {
+  local repo=$1
+  tag=$(docker images | awk "/${repo}/ { print \$2 }" | head -1)
+  if [[ -n $tag ]]; then
+    echo $tag
+  else
+    echo "No image found" >>/dev/stderr
+    false
+  fi
+}
+
 function dkr {
-  cid=$(docker run -dit quay.io/travisci/travis-$1 /sbin/init)
+  local image=$1
+  cid=$(docker run -dti --privileged=true --entrypoint=/sbin/init -v /sys/fs/cgroup:/sys/fs/cgroup:ro travisci/ci-${image}:$(latest_tag_for ${image}))
   docker exec -it $cid /bin/bash
   docker stop $cid
 }
 
-function dkrt {
-  cid=$(docker run -dit travisci/ci-garnet:packer-1499451976 /sbin/init)
-  docker exec -it $cid /bin/bash
-  docker stop $cid
+function dkrta {
+  dkr amethyst
+}
+
+function dkrtg {
+  dkr garnet
 }
 
 function dkrx {
-  cid=$(docker run -dti --privileged=true --entrypoint=/sbin/init -v /sys/fs/cgroup:/sys/fs/cgroup:ro travisci/ci-sardonyx:packer-1542104228-d128723)
-  docker exec -it $cid /bin/bash
-  docker stop $cid
+  dkr sardonyx
 }
 
 # man
