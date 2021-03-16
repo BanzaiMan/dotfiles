@@ -1,2 +1,0 @@
-# java
-export JAVA_HOME=$(/usr/libexec/java_home -a x86_64 -v 1.8)
