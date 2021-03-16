@@ -1,2 +1,0 @@
-# heroku
-eval "$(heroku autocomplete:script zsh)"
