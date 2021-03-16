@@ -5,7 +5,9 @@ setopt prompt_subst
 setopt +o nomatch
 
 # powerline
-. /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+if [ -f /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh ]; then
+  . /usr/local/lib/python3.7/site-packages/powerline/bindings/zsh/powerline.zsh
+fi
 
 # Prompt
 local dollar="%(?,%{$fg[green]%},%{$fg[red]%})$%{$reset_color%}"
@@ -30,7 +32,7 @@ export PATH=$PATH:${$(perl -e 'print $^X')%/*} # add perl's bin dir, wherever it
 cdpath=($HOME/Development/src/travis-ci)
 
 # Fix Homebrew zsh command completions
-for f in $(find $(find ~/personal/Homebrew/completions -name completions) -type f -ipath \*\*/zsh/\*\*); do
+for f in $(find $(find /usr/local/Homebrew/completions -name completions) -type f -ipath \*\*/zsh/\*\*); do
   ln -sf $f $(brew --prefix)/share/zsh/site-functions/$(basename $f)
 done
 
